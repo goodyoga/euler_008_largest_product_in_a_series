@@ -10,28 +10,44 @@ void usage(void);
 char *prog;
 unsigned long long int is_n_consecutive_digits(char *p, unsigned long long int digits);
 
+/**
+ * @file
+ * @addtogroup EULER_008  Euler_008_largest_product_in_a_series
+ * @{
+ */
 
+/**
+ * 
+ * @param p
+ * @param digits
+ * @return
+ */
 unsigned long long int is_n_consecutive_digits(char *p, unsigned long long int digits)
 {
     uint32_t i;
 
     for  ( i = 0 ; *p && (i < digits ) ; i++)
     {
-        if(p[i] != p[i+1])
+        if(p[i] != p[i+digits-1])
             return 0;
     }
     return i;
 }
 
+/**
+ * @brief find 5 consecutive digits
+ * 
+ * @param argc
+ * @param argv
+ * @return
+ */
 int main(int argc, char **argv)
 {
     unsigned long long int max;
     unsigned long long int digits;
-    unsigned long long int cur;
     unsigned long long int i;
-    int opt, all = 0;
+    int opt;
     char *p;
-    size_t size;
 
     char *problem ="73167176531330624919225119674426574742355349194934"
     "96983520312774506326239578318016984801869478851843"
@@ -55,14 +71,15 @@ int main(int argc, char **argv)
     "71636269561882670428252483600823257530420752963450";
     prog = argv[0];
     digits = 5;
-
+    max = 1000;
+    
     while ( -1 != (opt = getopt(argc, argv, "ahdn:")) )
     {
         if('h' == opt)
-	{
+        {
             usage();
             exit(EXIT_SUCCESS);
-	}
+        }
         else if ('d' == opt)
         {
             digits = strtoul(optarg, &p, 0);
@@ -71,33 +88,31 @@ int main(int argc, char **argv)
         {
             max = strtoull(optarg, &p, 0);
         }
-        else if ('a' == opt)
-        {
-            all = 1;
-        }
     }
     
     printf("finding %llu consecutive digits ...\n", digits);
 
 
     i = 0;
-    cur = 2;
-    while ( i < max )
+    while ( i < max - digits)
     {
-        if (is_prime(primes, i, cur, all))
+        if (is_n_consecutive_digits(problem+i, digits))
         {
-            primes[i] = cur;
-            i++;
+        	
         }
-        cur++;
+        i++;
     }
     
     printf("answer: %llu th prime is %llu\n", i, max);
     return EXIT_SUCCESS;
 }
+/**
+ * @}
+ */
 
-
-
+/**
+ * show help 
+ */
 void usage(void)
 {
     printf("    http://projecteuler.net/problem=8\n");
