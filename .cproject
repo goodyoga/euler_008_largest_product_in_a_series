@@ -14,7 +14,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration buildProperties="" description="" id="cdt.managedbuild.toolchain.gnu.base.1659815267" name="Default" parent="org.eclipse.cdt.build.core.emptycfg">
+				<configuration artifactName="euler_008_largest_product_in_a_series" buildProperties="" description="" id="cdt.managedbuild.toolchain.gnu.base.1659815267" name="Default" parent="org.eclipse.cdt.build.core.emptycfg">
 					<folderInfo id="cdt.managedbuild.toolchain.gnu.base.1659815267.293631198" name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.base.415892193" name="cdt.managedbuild.toolchain.gnu.base" superClass="cdt.managedbuild.toolchain.gnu.base">
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.target.gnu.platform.base.692283478" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.gnu.platform.base"/>
@@ -46,10 +46,9 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="euler_008_largest_product_in_a_series.null.1933227571" name="euler_008_largest_product_in_a_series"/>
 	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+	<storageModule moduleId="refreshScope" versionNumber="1">
+		<resource resourceType="PROJECT" workspacePath="/euler_008_largest_product_in_a_series"/>
 	</storageModule>
-	<storageModule moduleId="refreshScope"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
 		<buildTargets>
 			<target name="clean" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
@@ -69,5 +68,14 @@
 				<runAllBuilders>true</runAllBuilders>
 			</target>
 		</buildTargets>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.base.1659815267;cdt.managedbuild.toolchain.gnu.base.1659815267.293631198;cdt.managedbuild.tool.gnu.c.compiler.base.232327056;cdt.managedbuild.tool.gnu.c.compiler.input.379483202">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.base.1659815267;cdt.managedbuild.toolchain.gnu.base.1659815267.293631198;cdt.managedbuild.tool.gnu.cpp.compiler.base.218878072;cdt.managedbuild.tool.gnu.cpp.compiler.input.882936869">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+		</scannerConfigBuildInfo>
 	</storageModule>
 </cproject>
