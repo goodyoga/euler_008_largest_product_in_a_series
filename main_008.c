@@ -8,7 +8,7 @@
 
 void usage(void);
 char *prog;
-unsigned long long int is_n_consecutive_digits(char *p, unsigned long long int digits);
+unsigned long long int is_n_consecutive_digits(const char *p, unsigned long long int digits);
 
 /**
  * @file
@@ -22,20 +22,23 @@ unsigned long long int is_n_consecutive_digits(char *p, unsigned long long int d
  * @param digits
  * @return
  */
-unsigned long long int is_n_consecutive_digits(char *p, unsigned long long int digits)
+unsigned long long int is_n_consecutive_digits(const char *p, unsigned long long int digits)
 {
     uint32_t i;
-
+    unsigned long long temp = 1;
+    
     for  ( i = 0 ; *p && (i < digits ) ; i++)
     {
         if(p[i] != p[i+digits-1])
             return 0;
+        else 
+             temp *= (unsigned long long)(p[i] - '0');
     }
-    return i;
+    return temp;
 }
 
 /**
- * @brief find 5 consecutive digits
+ * @brief find 13 consecutive digits
  * 
  * @param argc
  * @param argv
@@ -43,13 +46,15 @@ unsigned long long int is_n_consecutive_digits(char *p, unsigned long long int d
  */
 int main(int argc, char **argv)
 {
-    unsigned long long int max;
+    unsigned long long int max = 0;
+    unsigned long long int len_problem;
     unsigned long long int digits;
     unsigned long long int i;
     int opt;
     char *p;
 
-    char *problem ="73167176531330624919225119674426574742355349194934"
+    char *problem =
+    "73167176531330624919225119674426574742355349194934"
     "96983520312774506326239578318016984801869478851843"
     "85861560789112949495459501737958331952853208805511"
     "12540698747158523863050715693290963295227443043557"
@@ -70,8 +75,8 @@ int main(int argc, char **argv)
     "05886116467109405077541002256983155200055935729725"
     "71636269561882670428252483600823257530420752963450";
     prog = argv[0];
-    digits = 5;
-    max = 1000;
+    digits = 13;
+    len_problem = strlen(problem);
     
     while ( -1 != (opt = getopt(argc, argv, "ahdn:")) )
     {
@@ -94,11 +99,13 @@ int main(int argc, char **argv)
 
 
     i = 0;
-    while ( i < max - digits)
+    while ( i < (len_problem - digits))
     {
-        if (is_n_consecutive_digits(problem+i, digits))
+        unsigned long long temp;
+        temp = is_n_consecutive_digits(problem+i, digits);
+        if (max < temp)
         {
-        	
+            max = temp;
         }
         i++;
     }
@@ -106,6 +113,7 @@ int main(int argc, char **argv)
     printf("answer: %llu th prime is %llu\n", i, max);
     return EXIT_SUCCESS;
 }
+
 /**
  * @}
  */
