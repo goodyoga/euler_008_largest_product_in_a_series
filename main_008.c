@@ -52,7 +52,6 @@ int main(int argc, char **argv)
     unsigned long long int i;
     int opt;
     char *p;
-
     char *problem =
     "73167176531330624919225119674426574742355349194934"
     "96983520312774506326239578318016984801869478851843"
